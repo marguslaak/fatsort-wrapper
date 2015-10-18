@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/fatsorter-wrapper.iml" filepath="$PROJECT_DIR$/.idea/fatsorter-wrapper.iml" />
+      <module fileurl="file://$USER_HOME$/Work/PublicProjects/fatsort-wrapper/.idea/fatsort-wrapper.iml" filepath="$USER_HOME$/Work/PublicProjects/fatsort-wrapper/.idea/fatsort-wrapper.iml" />
     </modules>
   </component>
 </project>

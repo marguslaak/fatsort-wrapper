@@ -48,21 +48,31 @@ def sudo(*cmd_args):
             os.system(shell_command)
 
 
+def dialog(dialog_type, message):
+    zenity = which("zenity")
+    if dialog_type == "error":
+        os.system("%s --error --text=\"%s\"" % (zenity, message))
+    elif dialog_type == "info":
+        os.system("%s --info --text=\"%s\"" % (zenity, message))
+    else:
+        print message
+
+
 def sort_fats():
     fatsort_path = which("fatsort")
     if not fatsort_path:
-        print "ERROR: This program uses fatsort. Please install 'fatsort'"
+        dialog("error", "This program uses fatsort. Please install 'fatsort'")
         sys.exit(1)
 
     vfats = get_vfat_mounts()
     if not vfats:
-        print "No vfat filesystems found in /etc/mtab"
+        dialog("error", "No vfat filesystems found in /etc/mtab")
         sys.exit()
 
     for dev in vfats:
-        print "Unmount and sort %s" % dev
         sudo("umount %s" % dev, "%s %s" % (fatsort_path, dev))
 
+    dialog("info", "All okey, remove USB stick")
 
 if __name__ == "__main__":
     sort_fats()

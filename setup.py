@@ -11,7 +11,7 @@ setup(
     description='Automatically sort and unmount all vfat filesystems',
     entry_points = {
               'console_scripts': [
-                  'fatsort_wrapper = fastsort_wrapper.__main__:main',
+                  'fatsort_wrapper = fatsort_wrapper.__main__:main',
               ],
           },
 )
